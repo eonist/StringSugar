@@ -1,7 +1,10 @@
 import Foundation
-
-class AdvanceStringParser{
+/**
+ * - Fixme: Move to Text repo?
+ */
+class AdvanceStringParser {
 	/**
+    * UNTESTED
     * Fixme: Write doc
     */
 	static func height(string: String, withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
@@ -10,6 +13,7 @@ class AdvanceStringParser{
 		 return ceil(boundingBox.height)
 	}
 	/**
+    * UNTESTED
     * Fixme: Write doc
     */
 	static func width(string: String, withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
@@ -18,6 +22,7 @@ class AdvanceStringParser{
 		 return ceil(boundingBox.width)
 	}
 	/**
+    * UNTESTED
     * Fixme: Write doc
     */
 	static func attributedStringWithLineSpacing(string: String, _ space: CGFloat) -> NSAttributedString {

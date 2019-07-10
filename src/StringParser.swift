@@ -1,12 +1,6 @@
 import Foundation
 
 class StringParser {
-    enum Pattern {
-        static let digit: String = "^(\\-?\\d*?\\.?\\d*?)(px|$)"//\-?\d*?(\.?)((?1)\d+?(?=px)
-        static let path: String = "^.*?\\/(?=\\w*?\\.\\w*?$)"
-        static let fileName: String = "^.*?\\/(\\w*?\\.\\w*?$)"
-        static let colorHex: String = "(?<=^#)(?:[a-fA-F0-9]{3}){1,2}|(?<!^#)(?:[a-fA-F0-9]{3}){1,2}$"
-    }
     /**
      * Returns encode text (escaped)
      * - Caution: ⚠️️ encode does not handle the double quote char very well
@@ -33,7 +27,7 @@ class StringParser {
      * Returns an array for every line in a string
      */
     static func paragraphs(_ string: String) -> [String] {
-        var result = split(string,"\n")
+        var result = split(string, "\n")
         result.removeLast()/*if the string is empty it still returns a result as [""] and if the string is not empty it returns plus one empty string. so we pop the last one of the array*/
         return result
     }
@@ -43,8 +37,8 @@ class StringParser {
 	  * - NOTE: use "\n" to retrive paragraphs
      * - NOTE: The opposit of this method is StringModifier.combine(array," ")
      */
-	static func split(_ string: String,_ delimiter: String) -> [String] {
-		return string.components(separatedBy:delimiter)
+	static func split(_ string: String, _ delimiter: String) -> [String] {
+		return string.components(separatedBy: delimiter)
 	}
     /**
      * New
@@ -81,7 +75,7 @@ class StringParser {
     static func subStr(_ str: String, _ beginning: Int, _ len: Int) -> String {
        //str.stringRange(str, beginning, len:len)
         let start = str.index(str.startIndex, offsetBy: beginning)
-        let end = str.index(str.startIndex, offsetBy: beginning+len)
+        let end = str.index(str.startIndex, offsetBy: beginning + len)
         let retVal = str[start..<end]//swift 4 upgrade, was: return str.substring(with:range)
         return String(retVal)
     }
@@ -91,9 +85,9 @@ class StringParser {
      * - NOTE: it may be faster to do it with this: str.substringWithRange(Range(start:str.startIndex , end:str.startIndex.advancedBy(index) ))   and str.substringWithRange(Range(start:str.startIndex.advancedBy(index) , end:str.endIndex ))
      */
 	static func splitAt(_ str: String, _ index: Int) -> [String] {
-		let a: String = subStr(str,0,index)//bug fix, was subStr
-		let b: String = subStr(str,index,str.string.count - index)//bug fix, was subStr
-		return [a,b]
+		let a: String = subStr(str, 0, index)//bug fix, was subStr
+		let b: String = subStr(str, index, str.string.count - index)//bug fix, was subStr
+		return [a, b]
 	}
 
     /**
@@ -128,7 +122,7 @@ class StringParser {
         return str
     }
     /**
-     * New
+     * trims left
      */
     static func trimLeft(_ str: String, _ left: Character) -> String {
         var str = str
@@ -136,8 +130,8 @@ class StringParser {
         return str
     }
     /**
-     * New
-     * - TODO: ⚠️️ Create trimRight for str as well
+     * trims right
+     * - Fixme: ⚠️️ Create trimRight for str as well
      */
     static func trimRight(_ str: String, _ right: Character) -> String {
         var str = str
@@ -152,17 +146,15 @@ class StringParser {
     static func trim(_ str: String, _ leftAndRight: Character) -> String {
         return trim(str, leftAndRight, leftAndRight)
     }
-   
     static func boolean(_ string: String) -> Bool {
         return string == "true"
     }
-   
     /**
      * Works with \n and \r
      */
-    static func lineCount(_ str: String)->Int{
+    static func lineCount(_ str: String) -> Int {
         let newLineSet = NSCharacterSet.newlines
-        let arr = str.components(separatedBy:newLineSet)
+        let arr = str.components(separatedBy: newLineSet)
         let count = arr.count
         return count
     }
@@ -171,7 +163,7 @@ class StringParser {
      * ## Examples:
      * "🚀ship".idx(1)//the String.Index between 🚀 and ship
      */
-    static func idx(_ str: String,_ index: Int) -> String.Index {
+    static func idx(_ str: String, _ index: Int) -> String.Index {
         return str.index(str.startIndex, offsetBy: index)/*Upgraded to swift 3-> was: startIndex.advancedBy*/
     }
     /**
@@ -179,14 +171,14 @@ class StringParser {
      * ## EXAMPLES:
      * "001".array({$0.int}) -> [0,0,1]
      */
-    static func array<T>(_ str: String, _ cast: (_ char: Character) -> T) -> [T]{
-        let arr:[T] = str.string.map { cast($0) }
+    static func array<T>(_ str: String, _ cast: (_ char: Character) -> T) -> [T] {
+        let arr: [T] = str.string.map { cast($0) }
         return arr
     }
     /**
      * Counts how many times a string appears in a string
      */
-    static func occurrences(){
+    static func occurrences() {
         //impliment this
     }
     /**

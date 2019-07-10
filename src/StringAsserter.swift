@@ -1,19 +1,14 @@
 import Foundation
 
 class StringAsserter {
-    enum Pattern{
-        static let digit: String = "^-?\\d*?\\.?\\d*?(px)?$"
-        static let metric: String = "^-?\\d*?\\.?\\d*?(ems|%)?$"
-        static let color: String = "^#?([a-fA-F0-9]{3}){1,2}$"
-    }
    /**
 	 * ## Examples:
     * Asserts if a word is duoble quated: isWrappedWith("\"abc123\"", "\"")//true
 	 */
-	static func isWrappedWith(_ string: String, _ char: Character) -> Bool{
+	static func isWrappedWith(_ string: String, _ char: Character) -> Bool {
 		return (string.string.first == char) && (string.string.last == char)
 	}
-    static func isWrappedWith(_ string: String, _ str: String) -> Bool{
+    static func isWrappedWith(_ string: String, _ str: String) -> Bool {
         return string.endsWith(str) && string.beginsWith(str)
     }
 	/**
@@ -32,11 +27,11 @@ class StringAsserter {
         return str.hasSuffix(suffix)
     }
     /**
-     * Asserts if a string is the word true
+     * Asserts if a string is the word true or false
      */
     static func boolean(_ string: String) -> Bool {
         //Swift.print("StringAsserter.boolean()"+"\(Bool(string == "true").dynamicType)")
-        return string.test("^(true|false)$")
+        return string == "true" || string == "false"//string.test("^(true|false)$")
     }
     /**
      * Check if string contains another string
@@ -45,46 +40,24 @@ class StringAsserter {
         return a.range(of: b) != nil
     }
     /**
-     * Asserts if a string is a digit (10, 20px, -20px, 0.2px, -.2, 0.2)
-     */
-    static func digit(_ string: String) -> Bool {
-        return string.test(Pattern.digit)
-    }
-    /**
      * New
      */
     static func int(str: String) -> Bool {
         return Int(str) != nil
     }
-    /**
-     * 2ems,20% etc
-     */
-    static func metric(_ string: String) -> Bool{
-        return string.test(Pattern.metric)
-    }
-    static func color(_ string: String) -> Bool {
-        return string.test(Pattern.color)
-    }
     static func webColor(_ string: String) -> Bool {
         return WebColors.webColors.contains(string)/*was regexp, is now array assert because probably faster*/
     }
-
     /**
      * Asserts if a string is in lower case
      */
     static func lowerCase(_ string: String) -> Bool {
         return string == string.lowercased()
     }
-	/**
-	 * Asserts if PARAM: value is a percentage
-	 */
-	static func percentage(_ value: String) -> Bool{
-		return value.test(".*?(?=%)")
-	}
     /**
      * New
      */
-    static func within(str: String, min: Int, max: Int) -> Bool{
+    static func within(str: String, min: Int, max: Int) -> Bool {
         return str.count > min && str.count < max
     }
 }

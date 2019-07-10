@@ -1,7 +1,7 @@
 import Foundation
 
 enum WebColors: String, CaseIterable {
-   case blue ,fuchsia ,black ,gray ,grey ,silver ,maroon ,red ,orange ,yellow ,olive ,green ,teal ,lime ,aqua ,navy ,purple ,white
+   case blue, fuchsia, black, gray, grey, silver, maroon, red, orange, yellow, olive, green, teal, lime, aqua, navy, purple, white
 }
 extension WebColors {
    static var webColors: [String] { return self.allCases.map { $0.rawValue } }

@@ -9,7 +9,7 @@ class CharacterParser {
     /**
      * Returns the char before PARAM: index
      */
-    static func predecessorAt(_ str: String,_ index: Int) -> Character {
+    static func predecessorAt(_ str: String, _ index: Int) -> Character {
         let predecessor = str.index(before: str.idx(index))
         return str.string[predecessor]
     }
@@ -17,7 +17,7 @@ class CharacterParser {
      * Returns the first occurence of PARAM: char in PARAM: str
      */
     static func indexOf(_ str: String, _ char: Character) -> Int {
-        if let strIndex = str.string.index(of: char) {
+        if let strIndex = str.string.firstIndex(of: char) {
             return str.distance(from: str.startIndex, to: strIndex)//<--upgraded to swift 3 support
         }
         else {
@@ -27,7 +27,7 @@ class CharacterParser {
     /**
      * Returns a Character instance at PARAM: index
      */
-    static func charAt(_ str: String,_ index: Int) -> Character{
+    static func charAt(_ str: String, _ index: Int) -> Character {
         let index = str.idx(index) //will call succ n times until index
         let char: Character = str[index] //you can also do: text.characters[index2]
         return char
