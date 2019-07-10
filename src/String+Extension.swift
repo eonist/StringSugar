@@ -1,4 +1,4 @@
-import Cocoa
+import Foundation
 
 /**
  * Swift 4 brings: string.count, string.isEmpty, string.dropFirst(),string.reversed(), string.filter { … }
@@ -39,24 +39,6 @@ extension String {
     func split(_ delimiter: String) -> [String] {/*Convenince*/
         return StringParser.split(self, delimiter)
     }
-    func match(_ pattern: String!, _ options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> [String] { // Convenince
-        return RegExp.match(self, pattern, options)
-    }
-    func matches(_ pattern: String!, _ options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> [NSTextCheckingResult] {//Convenince
-        return RegExp.matches(self, pattern, options)
-    }
-    func test(_ pattern: String) -> Bool {/*Convenince*/
-        return RegExp.test(self, pattern)
-    }
-    func replace(_ pattern: String, _ replacement: String) -> String {/*Convenince*/
-        return RegExp.replace(self, pattern, replacement)
-    }
-    func replace(_ pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive, replacer: RegExp.Replacer) -> String {
-        return RegExp.replace(self, pattern: pattern, options: options, replacer: replacer)
-    }
-    func search(_ pattern: String) -> Int? {/*Convenince*/
-        return RegExp.search(self,pattern)
-    }
     /**
      * - TODO: ⚠️️ Rename to var encoded
      */
@@ -90,9 +72,13 @@ extension String {
     func idx(_ index: Int) -> String.Index{
         return StringParser.idx(self, index)
     }
+   /**
+    * - Remark: You can also do: str.index(str.startIndex, offsetBy: index)
+    * - Note : natively like this: str.index(str.startIndex, offsetBy: 0)..<str.index(str.endIndex, offsetBy: str.count)
+    */
     func stringRange(_ str: String,_ beginning: Int, end: Int) -> Range<String.Index>{
         let startIndex = str.idx(beginning)
-        let endIndex = str.idx(end/*-beginning*/)//<--this was a bug
+        let endIndex = str.idx(end/*-beginning*/) // <-- this was a bug
         return startIndex..<endIndex
     }
     func stringRange(_ str: String,_ beginning: Int, len: Int) -> Range<String.Index> {//startIndex..<endIndex

@@ -1,4 +1,5 @@
-import Cocoa
+import Foundation
+
 class StringParser {
     enum Pattern {
         static let digit: String = "^(\\-?\\d*?\\.?\\d*?)(px|$)"//\-?\d*?(\.?)((?1)\d+?(?=px)
@@ -61,15 +62,16 @@ class StringParser {
     }
     /**
      * substring("Hello from Paris, Texas!!!", 11,15); // output: Pari
-     * - NOTE: get last 4 chars: String(a.suffix(4)) or a.substring(from:a.index(a.endIndex, offsetBy: -4))
-     * - IMportant: FROM swift 4 we rather do:
+     * - Note: get last 4 chars: String(a.suffix(4)) or a.substring(from:a.index(a.endIndex, offsetBy: -4))
+     * - Important: FROM swift 4 we rather do:
      * let newStr = str[..<index] The same stands for partial range from operators, just leave the other side empty:
      * let newStr = str[index...] Keep in mind that these range operators return a Substring. If you want to convert it to a string, use String's initialization function:
      * let newStr = String(str[..<index])
+     * let newStr = str[str.index(str.startIndex, offsetBy: 0)..<str.index(str.endIndex, offsetBy: str.count)]
      */
     static func subString(_ str: String, _ beginning: Int, _ end: Int) -> String {
         let range = str.stringRange(str, beginning, end: end)
-        let retVal = str[range.start..<range.end]//swift 4 upgrade, was: return str.substring(with:range)
+        let retVal = str[range.lowerBound..<range.upperBound] // swift 4 upgrade, was: return str.substring(with:range)
         return String(retVal)
     }
     /**
@@ -128,7 +130,7 @@ class StringParser {
     /**
      * New
      */
-    static func trimLeft(_ str: String, _ left: Character) -> String{
+    static func trimLeft(_ str: String, _ left: Character) -> String {
         var str = str
         if str.string.first == left { str = String(str.string.dropFirst()) }
         return str
@@ -137,9 +139,9 @@ class StringParser {
      * New
      * - TODO: ⚠️️ Create trimRight for str as well
      */
-    static func trimRight(_ str: String, _ right: Character) -> String{
+    static func trimRight(_ str: String, _ right: Character) -> String {
         var str = str
-        if str.string.last == right {str = String(str.string.dropLast())}
+        if str.string.last == right { str = String(str.string.dropLast()) }
         return str
     }
     /**
@@ -147,76 +149,14 @@ class StringParser {
      * ## EXAMPLES:
      * "32\n".trim("\n").int//32
      */
-    static func trim(_ str: String, _ leftAndRight: Character) -> String{
+    static func trim(_ str: String, _ leftAndRight: Character) -> String {
         return trim(str, leftAndRight, leftAndRight)
     }
-    /**
-     * Returns the percentage as a CGFloat
-     */
-    static func percentage(_ value: String) -> CGFloat{
-        return value.match(".*?(?=%)")[0].cgFloat
-    }
-
-    /**
-     * Returns a digit as a Number or a String type (suffix are removed from the return value)
-     * - RETURN: a Numberor a String type
-     * - PARAM: string can be 10, 20px, -20px, 0.2px, -.2, 20%, 0.2
-     * - NOTE: if the digit has a trailing % character it is returned as a String
-     * - TODO: ⚠️️ This could probably be simpler if you just added a none capturing group and used regexp.match
-     */
-    static func digit(_ string: String) -> CGFloat{
-        let matches = RegExp.matches(string, Pattern.digit)
-        let match: NSTextCheckingResult = matches[0]
-        let value: String = RegExp.value(string, match, 1)
-        return value.cgFloat
-    }
+   
     static func boolean(_ string: String) -> Bool {
         return string == "true"
     }
-    /**
-     * - NOTE: Supports 5 hex color formats: #FF0000,0xFF0000, FF0000, F00,(red,purple,pink and other web colors)
-     * Returns an rgb value
-     * - TODO: //green, blue, orange etc// :TODO: support for all of w3c color types
-     * - TODO: move this to a method named webColor?
-     */
-    static func color(_ hexColor: String) -> UInt{
-        if hexColor.test(Pattern.colorHex) {/*asserts if the color is in the correct hex format*/
-            //⚠️️⚠️️⚠️️⚠️️TODO: use native firstMatch instead of the bellow line, its way faster⚠️️⚠️️⚠️️⚠️️
-            var hex:String = RegExp.match(hexColor, Pattern.colorHex)[0]
-            if hex.string.count == 3 {
-                hex = String([hex.string.first!,hex.string.first!,hex.string[hex.index(hex.startIndex,offsetBy:1)],hex.string[hex.index(hex.startIndex,offsetBy:1)],hex.string.last!,hex.string.last!])//upgraded to swift 3
-            }/*Convert shorthand hex to hex*/
-            return ("0x"+hex).uint
-        }else{
-            return ColorTypes.color(hexColor)
-        }
-    }
-    /**
-     * Returns NSColor for variouse literal color formats
-     */
-    static func nsColor(_ hexColor: String) -> NSColor{
-        return StringParser.color(hexColor).color
-    }
-    /**
-     * Returns a file path, excluding the file name and file-suffix
-     * - PARAM: input: usually formated like: /Users/James/Downloads/PanelView.png
-     * - RETURN: a string formatted like: /Users/James/Downloads/
-     * ## EXAMPLES:
-     * path(Users/User/Desktop/main.css);//Users/User/Desktop/
-     * - NOTE: you can also do this another way:
-     * var match : Array = input.split(".");
-     * var path:String = String(match[0]).substring(0, String(match[0]).lastIndexOf("/"));
-     * - NOTE: ⚠️️ There is also a native way if you look through NSURL
-     */
-    static func path(_ url: String)->String {
-        return url.match(Pattern.path)[0]
-    }
-    /**
-     * - NOTE: There is also a native way if you look through NSURL
-     */
-    static func fileName(_ url: String)->String {
-        return url.match(Pattern.fileName)[1]
-    }
+   
     /**
      * Works with \n and \r
      */
@@ -252,15 +192,15 @@ class StringParser {
     /**
      * Prefix an int with a set amount of characters
      * ## Examples:
-     * prefix(value:6,padCount:3,padStr:"0")//"006"
+     * prefix(value:6, padCount:3, padStr:"0")//"006"
      * - Important: there is a native equivilent for this method: String(format: "%02d", myInt)
      */
      static func prefix(input: Int, padCount: Int, padStr: String) -> String {
          let padding: String = padStr * (padCount - String(input).count)
-         if value.string.count < padCount {
-            padding + String(input)
-         }else {
-            String(input)
+         if String(input).count < padCount {
+            return padding + String(input)
+         } else {
+            return String(input)
          }
      }
 }

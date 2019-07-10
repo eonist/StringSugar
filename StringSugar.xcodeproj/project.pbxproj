@@ -8,12 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		F1D81C2522D5F6DB008F842A /* StringSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = F1D81C2322D5F6DB008F842A /* StringSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1D81C3E22D5F86C008F842A /* StringModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C2D22D5F86B008F842A /* StringModifier.swift */; };
+		F1D81C3F22D5F86C008F842A /* CharacterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C2F22D5F86C008F842A /* CharacterParser.swift */; };
+		F1D81C4022D5F86C008F842A /* CharacterAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3022D5F86C008F842A /* CharacterAsserter.swift */; };
+		F1D81C4122D5F86C008F842A /* CharacterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3122D5F86C008F842A /* CharacterModifier.swift */; };
+		F1D81C4222D5F86C008F842A /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3222D5F86C008F842A /* CharacterExtensions.swift */; };
+		F1D81C4322D5F86C008F842A /* Crypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3422D5F86C008F842A /* Crypt.swift */; };
+		F1D81C4422D5F86C008F842A /* WebColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3522D5F86C008F842A /* WebColors.swift */; };
+		F1D81C4522D5F86C008F842A /* AdvanceStringParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3722D5F86C008F842A /* AdvanceStringParser.swift */; };
+		F1D81C4622D5F86C008F842A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3822D5F86C008F842A /* String+Extension.swift */; };
+		F1D81C4722D5F86C008F842A /* StringEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3922D5F86C008F842A /* StringEncoder.swift */; };
+		F1D81C4822D5F86C008F842A /* StringRangeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3B22D5F86C008F842A /* StringRangeParser.swift */; };
+		F1D81C4922D5F86C008F842A /* StringAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3C22D5F86C008F842A /* StringAsserter.swift */; };
+		F1D81C4A22D5F86C008F842A /* StringParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C3D22D5F86C008F842A /* StringParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F1D81C2022D5F6DB008F842A /* StringSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StringSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D81C2322D5F6DB008F842A /* StringSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringSugar.h; sourceTree = "<group>"; };
 		F1D81C2422D5F6DB008F842A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1D81C2D22D5F86B008F842A /* StringModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringModifier.swift; sourceTree = "<group>"; };
+		F1D81C2F22D5F86C008F842A /* CharacterParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterParser.swift; sourceTree = "<group>"; };
+		F1D81C3022D5F86C008F842A /* CharacterAsserter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAsserter.swift; sourceTree = "<group>"; };
+		F1D81C3122D5F86C008F842A /* CharacterModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterModifier.swift; sourceTree = "<group>"; };
+		F1D81C3222D5F86C008F842A /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
+		F1D81C3422D5F86C008F842A /* Crypt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypt.swift; sourceTree = "<group>"; };
+		F1D81C3522D5F86C008F842A /* WebColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebColors.swift; sourceTree = "<group>"; };
+		F1D81C3722D5F86C008F842A /* AdvanceStringParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvanceStringParser.swift; sourceTree = "<group>"; };
+		F1D81C3822D5F86C008F842A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		F1D81C3922D5F86C008F842A /* StringEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringEncoder.swift; sourceTree = "<group>"; };
+		F1D81C3B22D5F86C008F842A /* StringRangeParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringRangeParser.swift; sourceTree = "<group>"; };
+		F1D81C3C22D5F86C008F842A /* StringAsserter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringAsserter.swift; sourceTree = "<group>"; };
+		F1D81C3D22D5F86C008F842A /* StringParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +56,7 @@
 		F1D81C1622D5F6DB008F842A = {
 			isa = PBXGroup;
 			children = (
+				F1D81C2C22D5F86B008F842A /* src */,
 				F1D81C2222D5F6DB008F842A /* StringSugar */,
 				F1D81C2122D5F6DB008F842A /* Products */,
 			);
@@ -50,6 +77,58 @@
 				F1D81C2422D5F6DB008F842A /* Info.plist */,
 			);
 			path = StringSugar;
+			sourceTree = "<group>";
+		};
+		F1D81C2C22D5F86B008F842A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81C2D22D5F86B008F842A /* StringModifier.swift */,
+				F1D81C2E22D5F86B008F842A /* character */,
+				F1D81C3322D5F86C008F842A /* utils */,
+				F1D81C3622D5F86C008F842A /* advance */,
+				F1D81C3822D5F86C008F842A /* String+Extension.swift */,
+				F1D81C3922D5F86C008F842A /* StringEncoder.swift */,
+				F1D81C3A22D5F86C008F842A /* range */,
+				F1D81C3C22D5F86C008F842A /* StringAsserter.swift */,
+				F1D81C3D22D5F86C008F842A /* StringParser.swift */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		F1D81C2E22D5F86B008F842A /* character */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81C2F22D5F86C008F842A /* CharacterParser.swift */,
+				F1D81C3022D5F86C008F842A /* CharacterAsserter.swift */,
+				F1D81C3122D5F86C008F842A /* CharacterModifier.swift */,
+				F1D81C3222D5F86C008F842A /* CharacterExtensions.swift */,
+			);
+			path = character;
+			sourceTree = "<group>";
+		};
+		F1D81C3322D5F86C008F842A /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81C3422D5F86C008F842A /* Crypt.swift */,
+				F1D81C3522D5F86C008F842A /* WebColors.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		F1D81C3622D5F86C008F842A /* advance */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81C3722D5F86C008F842A /* AdvanceStringParser.swift */,
+			);
+			path = advance;
+			sourceTree = "<group>";
+		};
+		F1D81C3A22D5F86C008F842A /* range */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81C3B22D5F86C008F842A /* StringRangeParser.swift */,
+			);
+			path = range;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +230,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D81C3F22D5F86C008F842A /* CharacterParser.swift in Sources */,
+				F1D81C4622D5F86C008F842A /* String+Extension.swift in Sources */,
+				F1D81C4A22D5F86C008F842A /* StringParser.swift in Sources */,
+				F1D81C4222D5F86C008F842A /* CharacterExtensions.swift in Sources */,
+				F1D81C4522D5F86C008F842A /* AdvanceStringParser.swift in Sources */,
+				F1D81C4322D5F86C008F842A /* Crypt.swift in Sources */,
+				F1D81C4722D5F86C008F842A /* StringEncoder.swift in Sources */,
+				F1D81C4422D5F86C008F842A /* WebColors.swift in Sources */,
+				F1D81C3E22D5F86C008F842A /* StringModifier.swift in Sources */,
+				F1D81C4122D5F86C008F842A /* CharacterModifier.swift in Sources */,
+				F1D81C4822D5F86C008F842A /* StringRangeParser.swift in Sources */,
+				F1D81C4022D5F86C008F842A /* CharacterAsserter.swift in Sources */,
+				F1D81C4922D5F86C008F842A /* StringAsserter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

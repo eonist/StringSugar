@@ -1,3 +1,5 @@
+import Foundation
+
 class StringAsserter {
     enum Pattern{
         static let digit: String = "^-?\\d*?\\.?\\d*?(px)?$"
@@ -64,7 +66,7 @@ class StringAsserter {
         return string.test(Pattern.color)
     }
     static func webColor(_ string: String) -> Bool {
-        return WebColors.webColors.has(string)/*was regexp, is now array assert because probably faster*/
+        return WebColors.webColors.contains(string)/*was regexp, is now array assert because probably faster*/
     }
 
     /**
