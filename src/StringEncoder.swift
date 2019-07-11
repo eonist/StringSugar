@@ -1,6 +1,6 @@
 import Foundation
 
-class StringEncoder {
+public class StringEncoder {
    /**
     * EXAMPLE: toNSData("String to encode")
     * - NOTE: ⚠️️ swift 3 upgrade was-> string.dataUsingEncoding(NSUTF8StringEncoding)!

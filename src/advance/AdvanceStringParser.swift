@@ -2,7 +2,7 @@ import Foundation
 /**
  * - Fixme: Move to Text repo?
  */
-class AdvanceStringParser {
+public class AdvanceStringParser {
 	/**
     * UNTESTED
     * Fixme: Write doc

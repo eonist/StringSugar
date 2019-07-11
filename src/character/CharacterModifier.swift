@@ -1,4 +1,4 @@
-class CharacterModifier {
+public class CharacterModifier {
     /**
      * Removes a character at PARAM: index
      * - NOTE: These can be used to remove first and last: str.removeAtIndex(str.characters.indices.first!) // remove first letterstr.removeAtIndex(str.characters.indices.last!) // remove last letter

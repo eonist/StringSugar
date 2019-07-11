@@ -1,6 +1,6 @@
 import Foundation
 
-class StringParser {
+public class StringParser {
     /**
      * Returns encode text (escaped)
      * - Caution: ⚠️️ encode does not handle the double quote char very well

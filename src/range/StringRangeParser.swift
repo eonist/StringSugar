@@ -1,4 +1,4 @@
-class StringRangeParser {
+public class StringRangeParser {
     /**
      * Returns a Range of where the PARAM: b is located in PARAM: a
      */

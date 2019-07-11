@@ -1,4 +1,4 @@
-class CharacterAsserter {
+public class CharacterAsserter {
     /**
      * Asserts if a string contains a character
      * ## EXAMPLES:

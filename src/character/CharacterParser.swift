@@ -1,4 +1,4 @@
-class CharacterParser {
+public class CharacterParser {
     /**
      * Returns the char after PARAM: index
      */

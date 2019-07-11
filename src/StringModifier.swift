@@ -1,6 +1,6 @@
 import Foundation
 
-class StringModifier {
+public class StringModifier {
     /**
      * Returns an array with many strings
      */

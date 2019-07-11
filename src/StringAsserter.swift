@@ -1,6 +1,6 @@
 import Foundation
 
-class StringAsserter {
+public class StringAsserter {
    /**
 	 * ## Examples:
     * Asserts if a word is duoble quated: isWrappedWith("\"abc123\"", "\"")//true
