@@ -7,23 +7,23 @@ import Foundation
  */
 extension String {
     //init(_ value:Any) doesnt work as String("hello".reversed()) must go through
-    init(_ value: CGFloat) { self.init(describing: value) }/*Brings back simple String casting which was removed in swift 3*/
-    init(_ value: Int) { self.init(describing: value) }/*Brings back simple String casting which was removed in swift 3*/
-    init(_ value: Bool) { self.init(describing: value) }/*Brings back simple String casting which was removed in swift 3*/
+    public init(_ value: CGFloat) { self.init(describing: value) }/*Brings back simple String casting which was removed in swift 3*/
+    public init(_ value: Int) { self.init(describing: value) }/*Brings back simple String casting which was removed in swift 3*/
+    public init(_ value: Bool) { self.init(describing: value) }/*Brings back simple String casting which was removed in swift 3*/
 }
 /**
  * Asserters
  */
 extension String {
-    var bool: Bool { return StringParser.boolean(self) }
-    var isLowerCased: Bool { return StringAsserter.lowerCase(self) }
-    func beginsWith(_ prefix: String) -> Bool {
+    public var bool: Bool { return StringParser.boolean(self) }
+    public var isLowerCased: Bool { return StringAsserter.lowerCase(self) }
+    public func beginsWith(_ prefix: String) -> Bool {
         return StringAsserter.beginsWith(self, prefix)
     }
-    func endsWith(_ suffix: String) -> Bool {
+    public func endsWith(_ suffix: String) -> Bool {
         return StringAsserter.endsWith(self, suffix)
     }
-    func isWrappedWith(_ str: String) -> Bool {
+    public func isWrappedWith(_ str: String) -> Bool {
         return StringAsserter.isWrappedWith(self, str)
     }
 }
@@ -35,47 +35,47 @@ extension String {
      * ## EXAMPLES:
      * "this is cool".split(" ")//output: ["this","is","cool"]
      */
-    func split(_ delimiter: String) -> [String] {/*Convenince*/
+    public func split(_ delimiter: String) -> [String] {/*Convenince*/
         return StringParser.split(self, delimiter)
     }
     /**
      * - Fixme: ⚠️️ Rename to var encoded
      */
-    func encode() -> String? {/*Convenince*/
+    public func encode() -> String? {/*Convenince*/
         return StringParser.encode(self)
     }
     /**
      * - Fixme: ⚠️️ Rename to var decoded
      */
-    func decode() -> String? {/*Convenince*/
+    public func decode() -> String? {/*Convenince*/
         return StringParser.decode(self)
     }
-    func subStr(_ i: Int, _ len: Int) -> String {/*Convenince*/
+    public func subStr(_ i: Int, _ len: Int) -> String {/*Convenince*/
         return StringParser.subStr(self, i, len)
     }
-    func subString(_ beginning: Int, _ end: Int) -> String {/*Convenince*/
+    public func subString(_ beginning: Int, _ end: Int) -> String {/*Convenince*/
         return StringParser.subString(self, beginning, end)
     }
-    func indexOf(_ b: String) -> Int {/*Convenince*/
+    public func indexOf(_ b: String) -> Int {/*Convenince*/
         return StringParser.indexOf(self, b)
     }
-    func trim(_ leftAndRight: Character) -> String {/*Convenince*/
+    public func trim(_ leftAndRight: Character) -> String {/*Convenince*/
         return StringParser.trim(self, leftAndRight)
     }
-    func trimRight(_ right: Character) -> String {/*Convenince*/
+    public func trimRight(_ right: Character) -> String {/*Convenince*/
         return StringParser.trimRight(self, right)
     }
-    func trimLeft(_ left: Character) -> String {/*Convenince*/
+    public func trimLeft(_ left: Character) -> String {/*Convenince*/
         return StringParser.trimLeft(self, left)
     }
-    func idx(_ index: Int) -> String.Index {
+    public func idx(_ index: Int) -> String.Index {
         return StringParser.idx(self, index)
     }
    /**
     * - Remark: You can also do: str.index(str.startIndex, offsetBy: index)
     * - Note : natively like this: str.index(str.startIndex, offsetBy: 0)..<str.index(str.endIndex, offsetBy: str.count)
     */
-    func stringRange(_ str: String, _ beginning: Int, end: Int) -> Range<String.Index> {
+    public func stringRange(_ str: String, _ beginning: Int, end: Int) -> Range<String.Index> {
         let startIndex = str.idx(beginning)
         let endIndex = str.idx(end/*-beginning*/) // <-- this was a bug
         return startIndex..<endIndex
@@ -83,61 +83,61 @@ extension String {
    /**
     * Fixme: Write Doc
     */
-    func stringRange(_ str: String, _ beginning: Int, len: Int) -> Range<String.Index> {//startIndex..<endIndex
+    public func stringRange(_ str: String, _ beginning: Int, len: Int) -> Range<String.Index> {//startIndex..<endIndex
         let startIndex = str.idx(beginning)
         let endIndex = str.idx(beginning + len)
         return startIndex..<endIndex//swift 3 upgrade, was->Range(start:startIndex,end:endIndex)
     }
-    func array<T>(_ cast: (_ char: Character) -> T) -> [T] {
+    public func array<T>(_ cast: (_ char: Character) -> T) -> [T] {
         return StringParser.array(self, cast)
     }
     /**
      * - CAUTION: if you do "0xFF0000FF".uint it will give the wrong value, use UInt(Double("")!) instead for cases like that
      */
-    var uint: UInt { return UInt(Float(self)!) }
+    public var uint: UInt { return UInt(Float(self)!) }
     /**
      * ## EXAMPLES:
      * "<p>text</p>".xml//Output: xml
      */
 //    var xml: XML { return XML(self) }/*Convenince*/
 //    var url: URL? { return FilePathParser.path(self) }/*Convenince*/
-    var lineCount: Int { return StringParser.lineCount(self) }
+    public var lineCount: Int { return StringParser.lineCount(self) }
 //    var content: String? { return FileParser.content(self.tildePath) }
 //    var nsColor: NSColor { return StringParser.nsColor(self) }
 //    var int:Int{return Int(self)!}
-    var int: Int? { return Int(self) }
+    public var int: Int? { return Int(self) }
     /**
      * Since swift 4 There is also native count, But it doesn't return Int
      * - NOTE: was: var count:Int { return self.characters.count } but chatacters is no more in swift 4.1
      * ## EXAMPLES:
      * "abc👌".count//Output: 4
      */
-    var count: Int {
+    public var count: Int {
         return self.distance(from: self.startIndex, to: self.endIndex)
     }
-    var cgFloat: CGFloat { return CGFloat(Double(self)!) } //Fixme: you should also do the same for the Any type
-    var double: Double { return Double(self)! }
+    public var cgFloat: CGFloat { return CGFloat(Double(self)!) } //Fixme: you should also do the same for the Any type
+    public var double: Double { return Double(self)! }
 //    var json: Any? { return JSONParser.json(self) }
     /**
      * from user agnostic to absolute URL
      */
-    var tildePath: String { return NSString(string: self).expandingTildeInPath }/*Convenince*/
+    public var tildePath: String { return NSString(string: self).expandingTildeInPath }/*Convenince*/
     /**
      * Makes file paths user agnostic (~ instad of hardcoded user)
      * - NOTE: from absolute to "relative" URL
      * ## EXAMPLES:
      * "Users/John/Desktop".tildify//Output:~/Desktop
      */
-    var tildify: String { return NSString(string: self).abbreviatingWithTildeInPath }/*Convenince*/
+    public var tildify: String { return NSString(string: self).abbreviatingWithTildeInPath }/*Convenince*/
 }
 /**
  * Modifiers
  */
 extension String {
-    func insertCharsAt(_ charsAndIndicies: [(char: Character, index: Int)]) -> String {
+    public func insertCharsAt(_ charsAndIndicies: [(char: Character, index: Int)]) -> String {
         return StringModifier.insertCharsAt(self, charsAndIndicies)
     }
-    func removeLastChar() -> String { return StringModifier.removeLastChar(self) }
+    public func removeLastChar() -> String { return StringModifier.removeLastChar(self) }
     /**
      * - NOTE: remember to tildeExpand the filePath
      */
@@ -146,10 +146,10 @@ extension String {
 //    }
 }
 extension NSString {
-    var string: String { return String(self) }/*Convenience*/
+    public var string: String { return String(self) }/*Convenience*/
 }
 extension Bool {
-    var str: String { return self.description }
+    public var str: String { return self.description }
 }
 extension String {
    /**
@@ -168,15 +168,15 @@ extension String {
  */
 extension String {
    #if os(iOS)
-   typealias Font = UIFont
+   public typealias Font = UIFont
    #elseif os(macOS)
-   typealias Font = NSFont
+   public typealias Font = NSFont
    #endif
     /**
      * - NOTE: for Single Line
      * Alternativly: let size = text.size(withAttributes:[.font: UIFont.systemFont(ofSize:18.0)])
      */
-    func textWidth(font: Font?) -> CGFloat {
+    public func textWidth(font: String.Font?) -> CGFloat {
       let attributes = font != nil ? [NSAttributedString.Key.font: font!] : [:]
         let w = self.size(withAttributes: attributes).width
         return w

@@ -25,7 +25,7 @@ class AdvanceStringParser {
     * UNTESTED
     * Fixme: Write doc
     */
-	static func attributedStringWithLineSpacing(string: String, _ space: CGFloat) -> NSAttributedString {
+	public static func attributedStringWithLineSpacing(string: String, _ space: CGFloat) -> NSAttributedString {
 		 let paragraphStyle = NSMutableParagraphStyle()
 		 paragraphStyle.lineSpacing = space
 		 let attrString = NSMutableAttributedString(string: string)

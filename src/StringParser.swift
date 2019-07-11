@@ -9,7 +9,7 @@ class StringParser {
      * encode("<image location:files/img/image.jpg")--%3Cimage+location%3Afiles%2Fimg%2Fimage.jpg
      * "testing this stuff.121".encode//testing%20this%20stuff.121
      */
-    static func encode(_ str: String) -> String? {
+    public static func encode(_ str: String) -> String? {
         return str.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
     /**
@@ -20,13 +20,13 @@ class StringParser {
      * decode(%3Cimage+location%3Afiles%2Fimg%2Fimage.jpg)--<image location:files/img/image.jpg
      * "testing%20this%20stuff.121".decode//testing this stuff.121
      */
-    static func decode(_ str: String) -> String? {
+    public static func decode(_ str: String) -> String? {
         return str.removingPercentEncoding//swift 3 upgrade was -> stringByRemovingPercentEncoding
     }
     /**
      * Returns an array for every line in a string
      */
-    static func paragraphs(_ string: String) -> [String] {
+    public static func paragraphs(_ string: String) -> [String] {
         var result = split(string, "\n")
         result.removeLast()/*if the string is empty it still returns a result as [""] and if the string is not empty it returns plus one empty string. so we pop the last one of the array*/
         return result
@@ -37,19 +37,19 @@ class StringParser {
 	  * - NOTE: use "\n" to retrive paragraphs
      * - NOTE: The opposit of this method is StringModifier.combine(array," ")
      */
-	static func split(_ string: String, _ delimiter: String) -> [String] {
+	public static func split(_ string: String, _ delimiter: String) -> [String] {
 		return string.components(separatedBy: delimiter)
 	}
     /**
      * New
      */
-	static func firstWord(_ string: String) -> String {
+	public static func firstWord(_ string: String) -> String {
        return string.components(separatedBy: " ")[0]
     }
     /**
      * Returns the last char
      */
-   static func lastChar(_ string: String) -> String {
+   public static func lastChar(_ string: String) -> String {
         //let lastCharIndex:Int = string.characters.count - 1
         //print(lastCharIndex)
         return String(describing: string.string.last)//swift 3 upgrade -> was: String()
@@ -63,7 +63,7 @@ class StringParser {
      * let newStr = String(str[..<index])
      * let newStr = str[str.index(str.startIndex, offsetBy: 0)..<str.index(str.endIndex, offsetBy: str.count)]
      */
-    static func subString(_ str: String, _ beginning: Int, _ end: Int) -> String {
+    public static func subString(_ str: String, _ beginning: Int, _ end: Int) -> String {
         let range = str.stringRange(str, beginning, end: end)
         let retVal = str[range.lowerBound..<range.upperBound] // swift 4 upgrade, was: return str.substring(with:range)
         return String(retVal)
@@ -72,7 +72,7 @@ class StringParser {
      * substr("Hello from Paris, Texas!!!",11,15); // output: Paris, Texas!!!
      * - NOTE: ref: https://stackoverflow.com/a/39677704/5389500
      */
-    static func subStr(_ str: String, _ beginning: Int, _ len: Int) -> String {
+    public static func subStr(_ str: String, _ beginning: Int, _ len: Int) -> String {
        //str.stringRange(str, beginning, len:len)
         let start = str.index(str.startIndex, offsetBy: beginning)
         let end = str.index(str.startIndex, offsetBy: beginning + len)
@@ -84,7 +84,7 @@ class StringParser {
      * ## EXAMPLE: splitAt("Hello, playground",5)//["hello"," playground"]
      * - NOTE: it may be faster to do it with this: str.substringWithRange(Range(start:str.startIndex , end:str.startIndex.advancedBy(index) ))   and str.substringWithRange(Range(start:str.startIndex.advancedBy(index) , end:str.endIndex ))
      */
-	static func splitAt(_ str: String, _ index: Int) -> [String] {
+	public static func splitAt(_ str: String, _ index: Int) -> [String] {
 		let a: String = subStr(str, 0, index)//bug fix, was subStr
 		let b: String = subStr(str, index, str.string.count - index)//bug fix, was subStr
 		return [a, b]
@@ -94,7 +94,7 @@ class StringParser {
      * Returns the index of the first match of PARAM: b in PARAM: a
      * New: if the PARAM: b isnt present in PARAM a then return -1 indicating the string was not found
      */
-    static func indexOf(_ a: String, _ b: String) -> Int {
+    public static func indexOf(_ a: String, _ b: String) -> Int {
         guard let range: Range<String.Index> = StringRangeParser.rangeOf(a, b) else { return -1 }
         return a.distance(from: a.startIndex, to: range.lowerBound)
     }
@@ -102,20 +102,20 @@ class StringParser {
      * Returns str sans the first char
      * - NOTE: does not modify the original string
      */
-    static func sansPrefix(_ str: String) -> String {
+    public static func sansPrefix(_ str: String) -> String {
         return String(str.string.dropFirst())
     }
     /**
      * Returns str sans the last char
      * - NOTE: does not modify the original string
      */
-    static func sansSuffix(_ str: String) -> String {
+    public static func sansSuffix(_ str: String) -> String {
         return String(str.string.dropLast())
     }
     /**
      * - NOTE: only works with Character (make one that supports longer strings later)
      */
-    static func trim(_ str: String, _ left: Character, _ right: Character) -> String {
+    public static func trim(_ str: String, _ left: Character, _ right: Character) -> String {
         var str = str
         str = trimLeft(str, right)
         str = trimRight(str, right)
@@ -124,7 +124,7 @@ class StringParser {
     /**
      * trims left
      */
-    static func trimLeft(_ str: String, _ left: Character) -> String {
+    public static func trimLeft(_ str: String, _ left: Character) -> String {
         var str = str
         if str.string.first == left { str = String(str.string.dropFirst()) }
         return str
@@ -133,7 +133,7 @@ class StringParser {
      * trims right
      * - Fixme: ⚠️️ Create trimRight for str as well
      */
-    static func trimRight(_ str: String, _ right: Character) -> String {
+    public static func trimRight(_ str: String, _ right: Character) -> String {
         var str = str
         if str.string.last == right { str = String(str.string.dropLast()) }
         return str
@@ -143,16 +143,16 @@ class StringParser {
      * ## EXAMPLES:
      * "32\n".trim("\n").int//32
      */
-    static func trim(_ str: String, _ leftAndRight: Character) -> String {
+    public static func trim(_ str: String, _ leftAndRight: Character) -> String {
         return trim(str, leftAndRight, leftAndRight)
     }
-    static func boolean(_ string: String) -> Bool {
+    public static func boolean(_ string: String) -> Bool {
         return string == "true"
     }
     /**
      * Works with \n and \r
      */
-    static func lineCount(_ str: String) -> Int {
+    public static func lineCount(_ str: String) -> Int {
         let newLineSet = NSCharacterSet.newlines
         let arr = str.components(separatedBy: newLineSet)
         let count = arr.count
@@ -163,7 +163,7 @@ class StringParser {
      * ## Examples:
      * "🚀ship".idx(1)//the String.Index between 🚀 and ship
      */
-    static func idx(_ str: String, _ index: Int) -> String.Index {
+    public static func idx(_ str: String, _ index: Int) -> String.Index {
         return str.index(str.startIndex, offsetBy: index)/*Upgraded to swift 3-> was: startIndex.advancedBy*/
     }
     /**
@@ -171,14 +171,14 @@ class StringParser {
      * ## EXAMPLES:
      * "001".array({$0.int}) -> [0,0,1]
      */
-    static func array<T>(_ str: String, _ cast: (_ char: Character) -> T) -> [T] {
+    public static func array<T>(_ str: String, _ cast: (_ char: Character) -> T) -> [T] {
         let arr: [T] = str.string.map { cast($0) }
         return arr
     }
     /**
      * Counts how many times a string appears in a string
      */
-    static func occurrences() {
+    public static func occurrences() {
         //impliment this
     }
     /**
@@ -187,7 +187,7 @@ class StringParser {
      * prefix(value:6, padCount:3, padStr:"0")//"006"
      * - Important: there is a native equivilent for this method: String(format: "%02d", myInt)
      */
-     static func prefix(input: Int, padCount: Int, padStr: String) -> String {
+     public static func prefix(input: Int, padCount: Int, padStr: String) -> String {
          let padding: String = padStr * (padCount - String(input).count)
          if String(input).count < padCount {
             return padding + String(input)

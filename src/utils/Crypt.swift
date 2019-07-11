@@ -1,7 +1,7 @@
 import Foundation
 
 extension String {
-    func strHash(_ str: String) -> UInt64 {
+    public func strHash(_ str: String) -> UInt64 {
         var result = UInt64 (5381)
         let buf = [UInt8](str.utf8)
         for b in buf {
