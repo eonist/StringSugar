@@ -14,7 +14,7 @@ class StringModifier {
         return StringModifier.replaceFirst(input, match, "")
     }
     /**
-     * NOTE there is also inline: input.remove(at: input.index(before: input.endIndex))
+     * - NOTE there is also inline: input.remove(at: input.index(before: input.endIndex))
      */
     static func removeLastChar(_ input: String) -> String {
         let retVal = input[..<input.index(before: input.endIndex)]

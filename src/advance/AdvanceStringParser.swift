@@ -7,20 +7,20 @@ class AdvanceStringParser {
     * UNTESTED
     * Fixme: Write doc
     */
-	static func height(string: String, withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
-		 let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-		 let boundingBox = (string as NSString).boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
-		 return ceil(boundingBox.height)
-	}
+//   static func height(string: String, withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+//       let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+//       let boundingBox = (string as NSString).boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
+//       return ceil(boundingBox.height)
+//   }
 	/**
     * UNTESTED
     * Fixme: Write doc
     */
-	static func width(string: String, withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
-		 let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-		 let boundingBox = (string as NSString).boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
-		 return ceil(boundingBox.width)
-	}
+//   static func width(string: String, withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
+//       let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+//       let boundingBox = (string as NSString).boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
+//       return ceil(boundingBox.width)
+//   }
 	/**
     * UNTESTED
     * Fixme: Write doc
