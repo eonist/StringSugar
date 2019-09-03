@@ -8,6 +8,16 @@ public class StringModifier {
         return str.components(separatedBy: delimiter)
     }
     /**
+     * ## Examples:
+     * splitAtFirst(str: "element=value", delimeter: "=")
+     */
+    public static func splitAtFirst(str: String, delimeter: String) -> (a: String, b: String)? {
+      guard let upperIndex = (str.range(of: delimeter)?.upperBound), let lowerIndex = (str.range(of: delimeter)?.lowerBound) else { return nil }
+      let firstPart: String = .init(str.suffix(from: upperIndex))
+      let lastPart: String = .init(str.prefix(upTo: lowerIndex))
+      return (firstPart, lastPart)
+    }
+    /**
      * Removes the first occurence of the the prefix
      */
     public static func removePrefix(str: String, prefix: String) -> String {

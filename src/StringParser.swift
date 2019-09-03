@@ -80,16 +80,16 @@ public class StringParser {
         return String(retVal)
     }
     /**
-     * Returns an array comprised of two strings that is the result of splitting the @param str
-     * ## EXAMPLE: splitAt("Hello, playground",5)//["hello"," playground"]
-     * - NOTE: it may be faster to do it with this: str.substringWithRange(Range(start:str.startIndex , end:str.startIndex.advancedBy(index) ))   and str.substringWithRange(Range(start:str.startIndex.advancedBy(index) , end:str.endIndex ))
+     * Splits a string at the first occurrence of a delimiter string
+     * ## Examples:
+     * splitAtFirst(str: "element=value", delimiter: "=") // "element", "value"
      */
-	public static func splitAt(_ str: String, _ index: Int) -> [String] {
-		let a: String = subStr(str, 0, index)//bug fix, was subStr
-		let b: String = subStr(str, index, str.string.count - index)//bug fix, was subStr
-		return [a, b]
-	}
-
+    public static func splitAtFirst(str: String, delimiter: String) -> (a: String, b: String)? {
+       guard let upperIndex = (str.range(of: delimiter)?.upperBound), let lowerIndex = (str.range(of: delimiter)?.lowerBound) else { return nil }
+       let firstPart: String = .init(str.prefix(upTo: lowerIndex))
+       let lastPart: String = .init(str.suffix(from: upperIndex))
+       return (firstPart, lastPart)
+    }
     /**
      * Returns the index of the first match of PARAM: b in PARAM: a
      * New: if the PARAM: b isnt present in PARAM a then return -1 indicating the string was not found
