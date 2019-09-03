@@ -8,10 +8,18 @@ public class StringModifier {
         return str.components(separatedBy: delimiter)
     }
     /**
-     * Removes the first occurence of the PARAM: match
+     * Removes the first occurence of the the prefix
      */
-    public static func removeFirst(_ input: String, _ match: String) -> String {
-        return StringModifier.replaceFirst(input, match, "")
+    public static func removePrefix(str: String, prefix: String) -> String {
+        guard str.hasPrefix(prefix) else { return str }
+        return String(str.dropFirst(prefix.count))
+    }
+    /**
+     * Removes suffix from string
+     */
+    public static func removeSuffix(str: String, suffix: String) -> String {
+        guard str.hasSuffix(suffix) else { return str }
+        return String(str.dropLast(suffix.count))
     }
     /**
      * - NOTE there is also inline: input.remove(at: input.index(before: input.endIndex))
