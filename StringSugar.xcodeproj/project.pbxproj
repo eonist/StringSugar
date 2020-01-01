@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1062FC123BCCAA200256398 /* String+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1062FC023BCCAA200256398 /* String+Range.swift */; };
 		F1D81C2522D5F6DB008F842A /* StringSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = F1D81C2322D5F6DB008F842A /* StringSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1D81C3E22D5F86C008F842A /* StringModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C2D22D5F86B008F842A /* StringModifier.swift */; };
 		F1D81C3F22D5F86C008F842A /* CharacterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C2F22D5F86C008F842A /* CharacterParser.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F1062FC023BCCAA200256398 /* String+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Range.swift"; sourceTree = "<group>"; };
 		F1D81C2022D5F6DB008F842A /* StringSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StringSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D81C2322D5F6DB008F842A /* StringSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringSugar.h; sourceTree = "<group>"; };
 		F1D81C2422D5F6DB008F842A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				F1D81C3322D5F86C008F842A /* utils */,
 				F1D81C3622D5F86C008F842A /* advance */,
 				F1D81C3822D5F86C008F842A /* String+Extension.swift */,
+				F1062FC023BCCAA200256398 /* String+Range.swift */,
 				F1D81C3922D5F86C008F842A /* StringEncoder.swift */,
 				F1D81C3A22D5F86C008F842A /* range */,
 				F1D81C3C22D5F86C008F842A /* StringAsserter.swift */,
@@ -302,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1062FC123BCCAA200256398 /* String+Range.swift in Sources */,
 				F1D81C3F22D5F86C008F842A /* CharacterParser.swift in Sources */,
 				F1D81C4622D5F86C008F842A /* String+Extension.swift in Sources */,
 				F1D81C4A22D5F86C008F842A /* StringParser.swift in Sources */,

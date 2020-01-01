@@ -11,6 +11,7 @@ extension String {
     public init(_ value: Int) { self.init(describing: value) }/*Brings back simple String casting which was removed in swift 3*/
     public init(_ value: Bool) { self.init(describing: value) }/*Brings back simple String casting which was removed in swift 3*/
 }
+
 /**
  * Asserters
  */
