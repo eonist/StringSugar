@@ -195,4 +195,12 @@ public class StringParser {
             return String(input)
          }
      }
+      /**
+       * ## Examples:
+       * randomString(str: letters, desiredLength: 10) // cPNejXzp2p
+       */
+      static let letters: String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      static func randomString(str: String, desiredLength: Int) -> String {
+         String((0..<desiredLength).compactMap { _ in str.randomElement() })
+      }
 }

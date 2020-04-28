@@ -1,7 +1,7 @@
 public class CharacterAsserter {
     /**
      * Asserts if a string contains a character
-     * ## EXAMPLES:
+     * ## Examples:
      * "testing\n".characters.contains(Character("\n"))//true
      */
     public static func contains(_ string: String, char: Character) -> Bool {

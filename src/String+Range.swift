@@ -6,6 +6,7 @@ import Foundation
  data[..<4]  // "This"
  data[5..<9] // "is a"
  data[10...] // "string!"
+ * - Note: ref https://github.com/vincent-pradeilles/swift-tips#easier-string-slicing-using-ranges
  */
 extension String {
    public subscript(value: CountableClosedRange<Int>) -> Substring {

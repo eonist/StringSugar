@@ -166,9 +166,9 @@ public class StringModifier {
     }
     /**
      * Trims all whitespace from left and right of PARAM: str
-     * - NOTE: the original string is not modified
-     * - NOTE: you can also use: NSCharacterSet.whitespaceAndNewlineCharacterSet()
-     * ## EXAMPLES:
+     * - Note: the original string is not modified
+     * - Note: you can also use: NSCharacterSet.whitespaceAndNewlineCharacterSet()
+     * ## Examples:
      * trimWhiteSpace("    Let's trim the whitespace    ")//"Let's trim the whitespace"
      */
     public static func trimWhiteSpace(_ str: String) -> String {
@@ -176,4 +176,18 @@ public class StringModifier {
         return str.trimmingCharacters(in: .whitespaces)
         //NSCharacterSet.whitespaceCharacterSet()
     }
+    /**
+     * Truncates the string to the specified length number of characters and appends an optional trailing string if longer.
+     * - Parameter len: Desired maximum lengths of a string
+     * - Parameter trailing: A 'String' that will be appended after the truncation
+     * - Returns: 'String' object
+     * ## Examples:
+     * let str = truncate("I might be just a little bit too long", 10) // "I might be…"
+     */
+    public static func truncate(_ string: String, len: Int, trail: String = "…") -> String {
+       if self.count <= len { return self }
+       var truncated = self.prefix(length)
+       while truncated.last != " " { truncated = truncated.dropLast() }
+       return truncated + trailing
+     }
 }
