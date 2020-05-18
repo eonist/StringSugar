@@ -51,6 +51,16 @@ extension String {
     public func decode() -> String? {/*Convenince*/
         return StringParser.decode(self)
     }
+    /**
+     * ## Examples:
+     * "Hello, playground".shuffled() lplheo, rogl...
+     */
+    public func shuffled() -> String {
+      String(Array(str).shuffled())
+    }
+    /**
+     * - Note: native also works: str[..<str.index(str.startIndex, offsetBy: 6)]
+     */
     public func subStr(_ i: Int, _ len: Int) -> String {/*Convenince*/
         return StringParser.subStr(self, i, len)
     }

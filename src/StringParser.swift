@@ -203,4 +203,15 @@ public class StringParser {
       static func randomString(str: String, desiredLength: Int) -> String {
          String((0..<desiredLength).compactMap { _ in str.randomElement() })
       }
+      /**
+       * Returns sha256 of a string
+       */
+      static func sha256(str: String) -> String {
+         let inputData = Data(str.utf8)
+         let hashedData = SHA256.hash(data: inputData)
+         let hashString = hashedData.compactMap {
+            return String(format: "%02x", $0)
+         }.joined()
+         return hashString
+      }
 }
