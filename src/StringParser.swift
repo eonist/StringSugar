@@ -33,9 +33,9 @@ public class StringParser {
     }
 	/**
      * Returns an Array of words derived from PARAM str by splitting it at every PARAM delimiter
-     * ## EXAMPLES: components("Berlin, Paris, New York, San Francisco")//Returns an array with the following values:  ["Berlin", " Paris", " New York", " San Francisco"]
-	  * - NOTE: use "\n" to retrive paragraphs
-     * - NOTE: The opposit of this method is StringModifier.combine(array," ")
+     * ## Examples: components("Berlin, Paris, New York, San Francisco")//Returns an array with the following values:  ["Berlin", " Paris", " New York", " San Francisco"]
+	  * - Note: use "\n" to retrive paragraphs
+     * - Note: The opposit of this method is StringModifier.combine(array," ")
      */
 	public static func split(_ string: String, _ delimiter: String) -> [String] {
 		return string.components(separatedBy: delimiter)

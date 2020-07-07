@@ -201,3 +201,11 @@ extension String {
 //extension String: LocalizedError {/*adds error.localizedDescription*/
 //    public var errorDescription: String? { return self }
 //}
+/**
+ * String
+ */
+extension String {
+   var asciiData: Data? {
+      self.data(using: .ascii, allowLossyConversion: true)
+   }
+}
